@@ -1,3 +1,9 @@
-com\mkyong\web\controller\HelloController.class
-com\mkyong\servlet3\MyWebInitializer.class
+hib\DAO.class
+hib\PersonDAO.class
 com\mkyong\config\SpringWebConfig.class
+com\mkyong\web\controller\PersonController.class
+com\mkyong\web\controller\HelloController.class
+hib\Person.class
+com\mkyong\servlet3\MyWebInitializer.class
+spring\PersonService.class
+spring\IPersonService.class
