@@ -3,7 +3,7 @@ package hib;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PERSON")
+@Table(name = "USERS")
 public class Person {
     @Id
     @Column
@@ -11,7 +11,6 @@ public class Person {
     private int id;
 
     private String name;
-    private String country;
 
     public int getId() {
         return id;
@@ -29,13 +28,6 @@ public class Person {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public Person() {
 
@@ -43,6 +35,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "id=" + id + ", name=" + name + ", country=" + country;
+        return "id=" + id + ", name=" + name;
     }
 }

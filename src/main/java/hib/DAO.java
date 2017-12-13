@@ -37,7 +37,7 @@ public class DAO implements PersonDAO {
     @Override
     public List<Person> listPersons() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Person> personsList = session.createQuery("from Person").list();
+        List<Person> personsList = session.createQuery("from USERS").list();
         for(Person p : personsList){
             logger.info("Person List::"+p);
         }
