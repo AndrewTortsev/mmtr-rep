@@ -1,3 +1,3 @@
-hello\App.class
-hello\Greeting.class
-hello\GreetingController.class
+com\mkyong\web\controller\HelloController.class
+com\mkyong\servlet3\MyWebInitializer.class
+com\mkyong\config\SpringWebConfig.class
