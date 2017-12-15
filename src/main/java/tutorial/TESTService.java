@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @Service
 @Transactional
 public class TESTService {
+
     protected static Logger logger = Logger.getLogger("service");
 
     @Resource(name = "ru.lanit.epz.capitalRepairs.sessionFactory")
@@ -30,7 +32,7 @@ public class TESTService {
     public TEST get(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(TEST.class);
-        criteria.add(Restrictions.eq("id",id));
+        criteria.add(Restrictions.eq("id", id));
         return (TEST) criteria.uniqueResult();
     }
 }

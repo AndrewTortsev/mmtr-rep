@@ -4,46 +4,51 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TEST01")
+@Table(name = "TEST02", schema = "ZAKUPKI_DEV")
 public class TEST implements Serializable {
 
-    private static final long serialVersionUID = -5527566248002296042L;
     @Id
-    @Column(name = "S_TABLE_NAME")
-    private String tableName;
-    @Id
-    @Column(name = "S_COLUMN_NAME")
-    private String columnName;
-    @Id
-    @Column(name = "S_SUBSTRING")
-    private String subString;
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    @Column(name = "F1")
+    private char f1;
+    @Column(name = "F2")
+    private char f2;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public Integer getId() {
+        return id;
     }
 
-    public String getTableName() {
-        return tableName;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public char getF1() {
+        return f1;
     }
 
-    public String getColumnName() {
-        return columnName;
+    public void setF1(char f1) {
+        this.f1 = f1;
     }
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
+    public char getF2() {
+        return f2;
     }
 
-    public String getSubString() {
-        return subString;
+    public void setF2(char f2) {
+        this.f2 = f2;
     }
 
-    public void setSubString(String subString) {
-        this.subString = subString;
+    public char getF3() {
+        return f3;
     }
+
+    public void setF3(char f3) {
+        this.f3 = f3;
+    }
+
+    @Column(name = "F3")
+    private char f3;
 }
 
