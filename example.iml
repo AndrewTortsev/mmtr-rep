@@ -22,7 +22,6 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="ru.lanit.epz.capitalRepairs.sessionFactory" />
           <unit-entry name="src:main:webapp:WEB-INF:hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />

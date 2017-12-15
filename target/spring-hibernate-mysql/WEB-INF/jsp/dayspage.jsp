@@ -13,7 +13,7 @@
     <c:forEach items="${list}" var="list">
         <tr>
             <th>${list}</th>
-            <%--<th>${list.orgID}</th>--%>
+            <th>${list.orgID}</th>
         </tr>
     </c:forEach>
 </table>

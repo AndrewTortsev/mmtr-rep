@@ -12,25 +12,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
     protected static Logger logger = Logger.getLogger("controller");
 
     @Autowired
-    private AccountService accountService;
+    private TESTService TESTService;
 
-    @RequestMapping(value = "/ac", method = RequestMethod.GET)
-    public String getDays(Model model) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String getAccounts(Model model) {
         logger.debug("received get request");
-        List<Account> days = accountService.getAll();
+        List<TEST> days = TESTService.getAll();
         model.addAttribute("days", days);
         return "dayspage";
     }
 
     @RequestMapping(value = "/ac/get", method = RequestMethod.GET)
-    public String getDay(@RequestParam(value = "id", required = true) Integer id, Model model) {
+    public String getAccount(@RequestParam(value = "id", required = true) Integer id, Model model) {
         logger.debug("received get by id request");
-        model.addAttribute("day", accountService.get(id));
+        model.addAttribute("day", TESTService.get(id));
         return "daysbyidpage";
     }
 }
