@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/" crossContext="true">
+
+  <Resource name="jdbc/dataSource" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@192.168.0.155:1521/pgzdb"
+              username="ZAKUPKI_DEV" password="ZAKUPKI_DEV"
+              maxActive="2" maxIdle="2" maxWait="10000"
+    />
+
+</Context>
