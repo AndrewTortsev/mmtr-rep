@@ -10,7 +10,7 @@
 <div class="generic-container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead"TEST02</span></div>
+        <div class="panel-heading"><span class="lead" TEST02</span></div>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -23,10 +23,10 @@
             <tbody>
             <c:forEach items="${rows}" var="row">
             <tr>
-                <th>${row.ID}</th>
-                <th>${row.F1}</th>
-                <th>${row.F2}</th>
-                <th>${row.F3}</th>
+                <th>${row.id}</th>
+                <th>${row.f1}</th>
+                <th>${row.f2}</th>
+                <th>${row.f3}</th>
                 </c:forEach>
             </tbody>
         </table>
