@@ -24,7 +24,7 @@ public class MainController {
         logger.debug("received get request");
         List<TEST> rows = TESTService.getAll();
         model.addAttribute("rows", rows);
-        return "rowsPage";
+        return "index";
     }
 
     @RequestMapping(value = "/a/g", method = RequestMethod.GET)

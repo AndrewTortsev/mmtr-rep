@@ -7,5 +7,4 @@
               username="ZAKUPKI_DEV" password="ZAKUPKI_DEV"
               maxActive="2" maxIdle="2" maxWait="10000"
     />
-
 </Context>
