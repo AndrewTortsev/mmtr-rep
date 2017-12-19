@@ -1,3 +1,5 @@
-tutorial\TESTService.class
 tutorial\TEST.class
 tutorial\MainController.class
+tutorial\AjaxResponseBody.class
+tutorial\TESTService.class
+tutorial\MainServlet.class

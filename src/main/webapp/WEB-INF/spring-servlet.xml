@@ -12,6 +12,5 @@
     <!-- Declare a view resolver -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
-    <mvc:resources mapping="/style/**" location="/resources/styles/"/>
-
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 </beans>
