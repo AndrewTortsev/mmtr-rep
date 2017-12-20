@@ -20,7 +20,11 @@ public class MainServlet extends HttpServlet {
             row.setF1(request.getParameter("f1").charAt(0));
             row.setF2(request.getParameter("f2").charAt(0));
             row.setF3(request.getParameter("f3").charAt(0));
-            dao.update(row);
+            try {
+                dao.update(row);
+            }catch (Exception e){
+
+            }
             request.setAttribute("list", dao.getAll());
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("mainPage.jsp");
             requestDispatcher.forward(request, response);
@@ -40,7 +44,11 @@ public class MainServlet extends HttpServlet {
             row.setF1(request.getParameter("f1").charAt(0));
             row.setF2(request.getParameter("f2").charAt(0));
             row.setF3(request.getParameter("f3").charAt(0));
-            dao.create(row);
+            try {
+                dao.create(row);
+            }catch (Exception e){
+
+            }
             request.setAttribute("list", dao.getAll());
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("mainPage.jsp");
             requestDispatcher.forward(request, response);
@@ -58,7 +66,11 @@ public class MainServlet extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
         if (action.equalsIgnoreCase("delete")) {
-            dao.delete(Integer.parseInt(request.getParameter("idRow")));
+            try {
+                dao.delete(Integer.parseInt(request.getParameter("idRow")));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             request.setAttribute("list", dao.getAll());
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("mainPage.jsp");
             requestDispatcher.forward(request, response);

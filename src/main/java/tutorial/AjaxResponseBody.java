@@ -1,26 +1,29 @@
 package tutorial;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 public class AjaxResponseBody {
-    private String message;
-    private List<TEST> result;
 
-    public String getMessage() {
-        return message;
+    private String stackTrace;
+    private int status;
+
+    public String getStackTrace() {
+        return stackTrace;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public int getStatus() {
+        return status;
     }
 
-    public List<TEST> getResult() {
-        return result;
+    public String getJson() {
+        return new Gson().toJson(this).toString();
     }
 
-    public void setResult(List<TEST> result) {
-        this.result = result;
+    public AjaxResponseBody(String stackTrace, int status) {
+
+        this.stackTrace = stackTrace;
+        this.status = status;
     }
-
-
 }

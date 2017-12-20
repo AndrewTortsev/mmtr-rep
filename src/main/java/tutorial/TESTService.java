@@ -4,6 +4,7 @@ package tutorial;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,39 +28,52 @@ public class TESTService {
 
     public TEST getByID(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(TEST.class);
         criteria.add(Restrictions.eq("id", id));
         TEST result = (TEST) criteria.uniqueResult();
-        session.getTransaction().commit();
-        session.close();
         return result;
     }
 
-    public void create(TEST row) {
+    public AjaxResponseBody create(TEST row) throws Exception {
         Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(row);
-        session.getTransaction().commit();
-        session.close();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.saveOrUpdate(row);
+            return new AjaxResponseBody("", 1);
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            return new AjaxResponseBody(e.getStackTrace().toString(), -1);
+        }
     }
 
-    public void update(TEST test) {
+    public AjaxResponseBody update(TEST test) throws Exception {
         Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.update(test);
-        session.getTransaction().commit();
-        session.close();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(test);
+            return new AjaxResponseBody("", 1);
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            return new AjaxResponseBody(e.getStackTrace().toString(), -1);
+        }
     }
 
-    public void delete(int id) {
+    public AjaxResponseBody delete(int id) throws Exception {
         Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         Criteria criteria = session.createCriteria(TEST.class);
         criteria.add(Restrictions.eq("id", id));
         TEST row = (TEST) criteria.uniqueResult();
-        session.delete(row);
-        session.getTransaction().commit();
-        session.close();
+        try {
+            session.delete(row);
+            return new AjaxResponseBody("", 1);
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            return new AjaxResponseBody(e.getStackTrace().toString(), -1);
+        }
     }
 }

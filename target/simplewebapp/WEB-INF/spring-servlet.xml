@@ -9,8 +9,24 @@
                            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"
 >
 
-    <!-- Declare a view resolver -->
+    <bean id="tilesConfigurer"
+          class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+
+    </bean>
+    <!-- Declare a view resolver
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>-->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <import resource="hibernate-context.xml"/>
 </beans>

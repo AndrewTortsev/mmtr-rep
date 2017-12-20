@@ -14,31 +14,7 @@
 
 <div class="main">
     <h1>TEST02</h1>
-    <table>
-        <thead class="HE">
-        <tr>
-            <th>ID</th>
-            <th>FIELD01</th>
-            <th>FIELD02</th>
-            <th>FIELD03</th>
-            <th colspan="3"></th>
-        </tr>
-        </thead>
-        <tbody class="TB">
-        <c:forEach items="${rows}" var="row">
-            <tr>
-                <th>${row.id}</th>
-                <th><input type="text" name="f1${row.id}" value="${row.f1}"></th>
-                <th><input type="text" name="f2${row.id}" value="${row.f2}"></th>
-                <th><input type="text" name="f3${row.id}" value="${row.f3}"></th>
-                <th>
-                    <button id="edit${row.id}">Edit</button>
-                </th>
-                <th>
-                    <button id="delete${row.id}">Delete</button>
-                </th>
-            </tr>
-        </c:forEach>
+    <form action="javascript:void(null);" id="controlForm">
         <tr>
             <th>*</th>
 
@@ -47,17 +23,19 @@
             <th><input type="text" name="f3"></th>
 
             <th>
-                <button id="add">Add</button>
+                <button class="add">Add</button>
             </th>
         </tr>
-        </tbody>
-    </table>
+    </form>
+    <div id="data">
+        <jsp:include page="list.jsp"/>
+    </div>
     <script>
 
         $(function () {
-            iniRequest();
-            $('button').on("click", function () {
-                handeB($(this).attr("id"), $(this));
+            loadTable();
+            $('button.add').on("click", function () {
+                addRow();
             });
         })
     </script>

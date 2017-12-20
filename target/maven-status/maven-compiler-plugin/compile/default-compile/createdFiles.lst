@@ -2,4 +2,5 @@ tutorial\TEST.class
 tutorial\MainController.class
 tutorial\AjaxResponseBody.class
 tutorial\TESTService.class
+tutorial\ParamsModel.class
 tutorial\MainServlet.class

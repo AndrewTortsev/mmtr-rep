@@ -19,7 +19,12 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
+    <!--<jsp-config>-->
+        <!--<jsp-property-group>-->
+            <!--<url-pattern>*.jsp</url-pattern>-->
+            <!--<trim-directive-whitespaces>true</trim-directive-whitespaces>-->
+        <!--</jsp-property-group>-->
+    <!--</jsp-config>-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
