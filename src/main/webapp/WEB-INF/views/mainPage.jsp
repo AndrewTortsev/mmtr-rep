@@ -34,7 +34,7 @@
 
         $(function () {
             loadTable();
-            $('button.add').on("click", function () {
+            $('button.add, button.save').on("click", function () {
                 addRow();
             });
         })

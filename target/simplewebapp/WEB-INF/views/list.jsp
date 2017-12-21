@@ -14,10 +14,10 @@
     <%--@elvariable id="rows" type="java.util.List<tutorial.TEST>"--%>
     <c:forEach items="${rows}" var="row">
         <tr>
-            <td>${row.id}</td>
-            <td>${row.f1}</td>
-            <td>${row.f2}</td>
-            <td>${row.f3}</td>
+            <td data-name="id">${row.id}</td>
+            <td data-name="f1">${row.f1}</td>
+            <td data-name="f2">${row.f2}</td>
+            <td data-name="f3">${row.f3}</td>
             <th>
                 <button class="edit" id="edit${row.id}">Edit</button>
             </th>
@@ -29,12 +29,5 @@
     </tbody>
 </table>
 <script>
-    $(function () {
-        $('button.edit').on("click", function () {
-            editRow($(this).attr("id"));
-        });
-        $('button.delete').on("click", function () {
-            deleteRow($(this).attr("id"))
-        });
-    })
+    $(setEvents());
 </script>
