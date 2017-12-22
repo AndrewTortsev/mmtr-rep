@@ -4,16 +4,16 @@ var postFix = "";
 var requestData = {};
 
 function setEvents() {
-    $('button.edit').on("click", function () {
+    $('button.edit').off().on("click", function () {
         editRow($(this));
     });
-    $('button.add').on("click", function () {
+    $('button.add').off().on("click", function () {
         addRow();
     });
-    $('button.save').on("click", function () {
+    $('button.save').off().on("click", function () {
         updateRow($(this));
     });
-    $('button.delete').on("click", function () {
+    $('button.delete').off().on("click", function () {
         deleteRow($(this).attr("id"));
     });
 }
@@ -30,7 +30,7 @@ function doRequest() {
             console.log("error")
         }
     });
-    loadTable();
+    setTimeout(loadTable, 100);
 }
 
 function updateRow(button) {
